@@ -12,7 +12,7 @@ export const profile = {
   },
   /** Public path of the downloadable CV (copied into public/). */
   cvPath: "/cv.pdf",
-  /** Public path of the hero portrait (placeholder until the user sends the real one). */
-  photo: "/img/hero-placeholder.svg",
+  /** Public path of the hero portrait (optimized webp). */
+  photo: "/img/hero.webp",
   photoAlt: "Retrato de Juan Matias Gomez Andersen",
 } as const;
