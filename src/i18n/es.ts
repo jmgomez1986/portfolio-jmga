@@ -23,14 +23,16 @@ export const es: SiteCopy = {
     title: "Sobre mí",
     paragraphs: [
       "Soy desarrollador de software con más de 14 años de experiencia en IT — los últimos 8 construyendo arquitecturas frontend robustas con Angular, y 6 años anteriores en SAP/ABAP. Mi foco: optimización del rendimiento, gestión predecible del estado global e interfaces rápidas con atención al detalle.",
-      "Trabajé en aplicaciones enterprise desde Angular v11 hasta v21 — librerías de componentes con Angular Material, NgRx/RxJS, micro-frontends bajo design systems de cliente, CI/CD y Docker — siempre en equipos Scrum. Hoy trabajo con Angular moderno (Signals, nuevo control flow) y un flujo asistido por IA (Cursor, Copilot, Cline), expandiéndome hacia React (Zustand, Tanstack Query), Node.js y APIs REST.",
+      "Trabajé en aplicaciones enterprise desde Angular v11 hasta v21 — librerías de componentes con Angular Material, NgRx/RxJS, micro-frontends bajo design systems de cliente, CI/CD y Docker — siempre en equipos Scrum. Hoy trabajo con Angular moderno (Signals, nuevo control flow) y un flujo asistido por IA (Cursor, Copilot, Cline, OpenCode y Gentle AI), expandiéndome hacia React (Zustand, Tanstack Query), Node.js y APIs REST.",
     ],
     howIWorkTitle: "Cómo trabajo",
     howIWork: [
-      { keyword: "Performance", rest: " es un feature fundacional, no un afterthought." },
-      { keyword: "Componentes reutilizables", rest: " componen velocidad de equipo en el tiempo." },
-      { keyword: "Estado predecible", rest: " antes que magia — es una línea base de ingeniería, nunca un compromiso." },
-      { keyword: "IA asistida", rest: " acelera el oficio, nunca baja la vara." },
+      { keyword: "Performance", rest: " es un feature fundacional del producto, no un afterthought." },
+      { keyword: "Buenas prácticas", rest: " en cada commit — no solo en el README." },
+      { keyword: "Trabajo en equipo", rest: " y colaboración: scrum real, code review y feedback honesto." },
+      { keyword: "Componentes reutilizables", rest: " que el próximo proyecto hereda, no reescribe." },
+      { keyword: "Estado predecible", rest: " antes que magia." },
+      { keyword: "IA asistida", rest: " acelera el oficio; las decisiones siguen siendo mías." },
     ],
   },
   skills: {

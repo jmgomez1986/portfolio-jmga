@@ -22,9 +22,10 @@ describe("site copy (es) contract", () => {
     expect(copy.hero.intro).not.toMatch(/Next\.js/u);
   });
 
-  it("about has exactly 2 paragraphs and 4 working principles", () => {
+  it("about has exactly 2 paragraphs and 4-6 working principles", () => {
     expect(copy.about.paragraphs).toHaveLength(2);
-    expect(copy.about.howIWork).toHaveLength(4);
+    expect(copy.about.howIWork.length).toBeGreaterThanOrEqual(4);
+    expect(copy.about.howIWork.length).toBeLessThanOrEqual(6);
     for (const item of copy.about.howIWork) {
       expect(item.keyword.length).toBeGreaterThan(0);
       expect(item.rest.length).toBeGreaterThan(0);
