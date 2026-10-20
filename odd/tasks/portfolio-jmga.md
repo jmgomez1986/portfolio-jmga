@@ -34,7 +34,7 @@ S14. Datos duros del usuario (rb Media): LinkedIn https://www.linkedin.com/in/ju
 - T4 [S4,S7,S10,S11,S12] SectionHeader + About + Skills agrupadas + Projects (filas alternadas, preview browser-frame CSS placeholder) + Contact (island copiar email) + Footer. — done ✓
 - T5 QA responsive (3 breakpoints), build limpio, tests verdes, revisión de contraste. — build ✓ (1 página, 1.29s), tests ✓ (7/7), QA visual manual pendiente al ver el sitio
 - T6 Foto real (usuario pasa 2 fotos en color; elegir la del hero; grayscale en CSS). — done ✓ (elegida "foto 02.png" — camiseta azul, mejor luz y rango tonal en B/N que la alternativa tipo DNI; optimizada a webp 564×590/20KB con sharp; commit pendiente de este último cambio)
-- T7 Deploy (Cloudflare Pages/Vercel) + dominio/foto/CV reales. — decisión del usuario; requiere su ok
+- T7 Deploy (Cloudflare Pages/Vercel) + dominio/foto/CV reales. — done ✓ Cloudflare (Workers static assets), https://portfolio-jmga.jmgametal.workers.dev — verificado: HTML 200, contenido completo, /cv.pdf 200 application/pdf, /img/hero.webp 200 image/webp. Repo público: https://github.com/jmgomez1986/portfolio-jmga (push confirmado 1ff9f06). Redeploy automático en cada push a main.
 - T2..T4 evidencia de implementation: commit `c66b6ef` (feat).
 
 ## Log
