@@ -64,14 +64,17 @@ import { profile } from "../data/profile";
   }
 
   @media (max-width: 860px) {
+    /* Centered footer on mobile: cohesive with the Contact section above. */
     .footer-inner {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      text-align: center;
       gap: 1rem;
     }
 
     .footer-links {
       margin-left: 0;
+      justify-content: center;
     }
   }
 </style>
