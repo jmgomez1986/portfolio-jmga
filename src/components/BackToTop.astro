@@ -1,0 +1,78 @@
+---
+// Floating back-to-top affordance: appears past the first viewport.
+---
+
+<button id="back-to-top" class="back-to-top" type="button" aria-label="Volver arriba" hidden>
+  <span aria-hidden="true">↑</span>
+</button>
+
+<style>
+  .back-to-top {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 40; /* above content, below nav (50) and menu overlay */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.4);
+    transition:
+      opacity 200ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .back-to-top.hidden {
+    opacity: 0;
+    visibility: hidden;
+    /* drop it out of the way while hidden */
+    pointer-events: none;
+  }
+
+  .back-to-top:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("back-to-top") as HTMLButtonElement | null;
+
+  if (btn) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const toggle = () => {
+      // Show once the user scrolled past roughly the first viewport.
+      const past = window.scrollY > window.innerHeight * 0.75;
+      btn.hidden = false;
+      btn.classList.toggle("hidden", !past);
+      btn.classList.toggle("visible", past);
+    };
+
+    toggle();
+    window.addEventListener("scroll", toggle, { passive: true });
+
+    btn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: reducedMotion.matches ? "auto" : "smooth",
+      });
+    });
+  }
+</script>

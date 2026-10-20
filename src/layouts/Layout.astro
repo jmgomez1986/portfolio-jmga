@@ -4,6 +4,7 @@ import "@fontsource-variable/space-grotesk";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/newsreader/wght-italic.css";
 import "../styles/global.css";
+import BackToTop from "../components/BackToTop.astro";
 
 interface Props {
   title: string;
@@ -29,5 +30,71 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+    <BackToTop />
+    <script>
+      /**
+       * In-page hash navigation without history pollution.
+       *
+       * Menu overlay intercepts its own links only when the menu entry exists
+       * (flag true on the current history entry): it pops that entry via
+       * history.back() and defers the scroll until the overlay restored body
+       * scroll. Everything else smooth-scrolls in place and rewítes the URL
+       * with replaceState, so History never gains same-document entries and
+       * Android/iOS "back" exits the site instead of stepping through anchors.
+       * Rewrites the URL in place so it stays shareable.
+       */
+      const MENU_FLAG = "jmgaMenuOpen";
+      const OVERLAY = "mobile-menu-overlay";
+
+      const menuEntryPresent = (): boolean =>
+        history.state != null &&
+        (history.state as Record<string, unknown>)[MENU_FLAG] === true;
+
+      const scrollToAnchor = (id: string): boolean => {
+        const target = document.getElementById(id);
+        if (!target) return false;
+        // Plain scrollIntoView: CSS scroll-behavior + reduced-motion media
+        // query decide pacing.
+        target.scrollIntoView();
+        return true;
+      };
+
+      document.addEventListener("click", (event) => {
+        const link = (event.target as Element | null)?.closest?.("a");
+        if (!link) return;
+        // Only links inside the mobile overlay participate; other hash links
+        // (desktop nav, footer) keep native hash navigation.
+        if (link.closest(`#${OVERLAY}`) == null) return;
+        const href = link.getAttribute("href") ?? "";
+        if (!href.startsWith("#")) return;
+        const id = href.slice(1);
+        if (id === "" || !scrollToAnchor(id)) return;
+        event.preventDefault();
+        if (menuEntryPresent()) {
+          // Pop the menu entry; the deferred popstate handler scrolls again
+          // once body scroll is available and rewrites the URL in place.
+          history.back();
+          return;
+        }
+        history.replaceState(history.state, "", href);
+      });
+
+      let pendingScrollId: string | null = null;
+
+      window.addEventListener("popstate", () => {
+        if (pendingScrollId == null) return;
+        const id = pendingScrollId;
+        pendingScrollId = null;
+        // Double rAF: the menu's popstate lands first, React closes the
+        // overlay and its cleanup restores body overflow before painting;
+        // scrolling before that would be swallowed by overflow:hidden.
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => {
+            scrollToAnchor(id);
+            history.replaceState(history.state, "", `#${id}`);
+          })
+        );
+      });
+    </script>
   </body>
 </html>

@@ -15,6 +15,8 @@ function menuEntryPresent(): boolean {
  * Mobile navigation island: hamburger button + full-screen overlay.
  * - Opening pushes a history entry, so Android/iOS "back" closes the menu
  *   instead of leaving the site (and "forward" re-opens it).
+ * - Overlay links close the menu; the global hash-navigation script handles
+ *   history and scrolling (see Layout.astro).
  * - The toggle button keeps z-index above the overlay at all times.
  */
 export default function MobileMenu({ links }: Props) {
@@ -42,12 +44,6 @@ export default function MobileMenu({ links }: Props) {
 
   const handleLinkClick = useCallback(() => {
     setOpen(false);
-    // The anchor navigation pushes its own entry; just clean our flag so
-    // "back" from the section lands on the real previous entry.
-    if (menuEntryPresent()) {
-      const st = { ...(history.state as Record<string, unknown>), [MENU_FLAG]: false };
-      history.replaceState(st, "", location.href);
-    }
   }, []);
 
   const handleOverlayClick = useCallback(
