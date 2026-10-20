@@ -65,6 +65,6 @@ export const es: SiteCopy = {
     copiedLabel: "¡Copiado!",
   },
   footer: {
-    line: "Hecho con Astro.",
+    line: "© 2026 Juan Matias Gomez Andersen.",
   },
 };
