@@ -30,8 +30,8 @@ describe("projects data contract", () => {
       expect((project.description as string).length).toBeGreaterThan(0);
 
       expect(project.tags, "tags").toEqual(expect.any(Array));
-      expect(project.tags.length).toBeLessThanOrEqual(4);
-      expect(project.tags.length).toBeGreaterThanOrEqual(1);
+      expect((project.tags as string[]).length).toBeLessThanOrEqual(4);
+      expect((project.tags as string[]).length).toBeGreaterThanOrEqual(1);
 
       // Real entries need real URLs; explicitly flagged placeholders may stub.
       const urlToMatchSha: string = asPlaceholder(project) ? "^#$" : "^https?://\\S+$";

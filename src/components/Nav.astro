@@ -136,6 +136,9 @@ import MobileMenu from "../islands/MobileMenu";
       background: transparent;
       color: var(--text);
       cursor: pointer;
+      /* Must paint above the overlay (z-index: 1) or the cast covers its own toggle */
+      position: relative;
+      z-index: 3;
     }
 
     :global(.mobile-menu-icon) {
