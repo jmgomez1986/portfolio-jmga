@@ -1,0 +1,58 @@
+---
+import { es } from "../i18n/es";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section class="skills">
+  <div class="container">
+    <SectionHeader num="02" title={es.skills.title} id="skills" />
+
+    <p class="intro muted">{es.skills.intro}</p>
+
+    <p class="label group-label">{es.skills.coreLabel}</p>
+    <ul class="chips" role="list">
+      {es.skills.coreChips.map((chip) => <li class="chip">{chip}</li>)}
+    </ul>
+
+    <p class="sap-line muted">{es.skills.sapLine}</p>
+  </div>
+</section>
+
+<style>
+  .skills {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .intro {
+    max-width: 52ch;
+    margin-bottom: 2.25rem;
+  }
+
+  .group-label {
+    margin-bottom: 0.9rem;
+  }
+
+  .chips {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    max-width: 720px;
+  }
+
+  .sap-line {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.25rem;
+    max-width: 720px;
+  }
+
+  @media (max-width: 860px) {
+    .skills {
+      padding: 3.5rem 0;
+    }
+  }
+</style>

@@ -1,0 +1,80 @@
+---
+import { es } from "../i18n/es";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<section class="about">
+  <div class="container">
+    <SectionHeader num="01" title={es.about.title} id="about" />
+
+    <div class="about-grid">
+      <div class="about-bio">
+        {es.about.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+
+      <div class="about-how">
+        <p class="label">{es.about.howIWorkTitle}</p>
+        <ul class="how-list">
+          {
+            es.about.howIWork.map((item) => (
+              <li>
+                <span class="serif-italic">{item.keyword}</span>
+                {item.rest}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .about-bio p {
+    color: var(--muted);
+    max-width: 58ch;
+  }
+
+  .about-bio p + p {
+    margin-top: 1.25rem;
+  }
+
+  .how-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .how-list li {
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 860px) {
+    .about {
+      padding: 3.5rem 0;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

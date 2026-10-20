@@ -1,0 +1,151 @@
+---
+/**
+ * CSS-built preview placeholder used when a project has no real
+ * screenshot yet. Pure markup + local styles, no JS, no external image.
+ * The accent chart line gives the subtle "product" feel.
+ */
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const domain = `${slug.replace(/^ejemplo-/, "")}.demo.local`;
+---
+
+<figure class="browser" aria-hidden="true">
+  <div class="browser-bar">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="browser-url">{domain}</span>
+  </div>
+  <div class="browser-body">
+    <div class="mock-sidebar">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="mock-main">
+      <div class="mock-kpis">
+        <span class="kp"></span>
+        <span class="kp"></span>
+        <span class="kp"></span>
+      </div>
+      <svg class="mock-chart" viewBox="0 0 300 90" preserveAspectRatio="none">
+        <path
+          d="M0 70 C 30 66, 50 58, 80 58 S 130 62, 160 48 S 230 30, 260 22 S 290 14, 300 12"
+          fill="none"
+          stroke="var(--accent)"
+          stroke-width="2"
+        ></path>
+      </svg>
+      <div class="mock-rows">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</figure>
+
+<style>
+  .browser {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+
+  .browser-url {
+    margin-inline: auto;
+    padding: 0.15rem 0.9rem;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    font-family: var(--font-heading);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  .browser-body {
+    display: flex;
+    min-height: 240px;
+  }
+
+  .mock-sidebar {
+    width: 52px;
+    padding: 0.8rem 0.55rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .mock-sidebar span {
+    height: 7px;
+    border-radius: 4px;
+    background: var(--border);
+  }
+
+  .mock-main {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .mock-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+  }
+
+  .kp {
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+
+  .mock-chart {
+    width: 100%;
+    height: 90px;
+    background: var(--surface);
+    border-radius: 8px;
+  }
+
+  .mock-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mock-rows span {
+    height: 9px;
+    border-radius: 4px;
+    background: var(--border);
+  }
+
+  .mock-rows span:nth-child(2) {
+    width: 72%;
+  }
+
+  .mock-rows span:nth-child(3) {
+    width: 45%;
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  id: string;
+}
+
+const { num, title, id } = Astro.props;
+---
+
+<h2 id={id} class="section-header anchor">
+  <span class="num">{num}.</span> {title}
+</h2>
+
+<style>
+  .anchor {
+    scroll-margin-top: calc(var(--nav-h) + 24px);
+  }
+</style>

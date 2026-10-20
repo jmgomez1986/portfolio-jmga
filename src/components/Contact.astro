@@ -1,0 +1,143 @@
+---
+import { es } from "../i18n/es";
+import { profile } from "../data/profile";
+import SectionHeader from "./SectionHeader.astro";
+import CopyEmail from "../islands/CopyEmail";
+---
+
+<section class="contact">
+  <div class="container">
+    <SectionHeader num="04" title={es.contact.title} id="contact" />
+
+    <p class="subtitle muted">{es.contact.subtitle}</p>
+
+    <p class="email-line">
+      <a class="email" href={`mailto:${profile.links.email}`}>{profile.links.email}</a>
+      <CopyEmail
+        client:visible
+        email={profile.links.email}
+        copyLabel={es.contact.copyLabel}
+        copiedLabel={es.contact.copiedLabel}
+      />
+    </p>
+
+    <ul class="contact-pills" role="list">
+      <li><a class="pill-link" href={profile.links.github} target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+      <li><a class="pill-link" href={profile.links.linkedin} target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+      <li><a class="pill-link" href={profile.cvPath} target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .contact :global(.section-header) {
+    justify-content: center;
+  }
+
+  .subtitle {
+    max-width: 46ch;
+    margin: -1rem auto 2.75rem;
+  }
+
+  .email-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .email {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border);
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+
+  .email:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  :global(.copy-email) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--muted);
+    cursor: pointer;
+    transition: border-color 160ms ease, color 160ms ease;
+  }
+
+  :global(.copy-email:hover) {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  :global(.copy-email-icon) {
+    font-size: 0.95rem;
+  }
+
+  :global(.visually-hidden) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .contact-pills {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 3rem;
+  }
+
+  .pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    padding: 0.5rem 1.3rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    color: var(--muted);
+    transition: border-color 160ms ease, color 160ms ease;
+  }
+
+  .pill-link:hover {
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  @media (max-width: 860px) {
+    .contact {
+      padding: 4rem 0;
+    }
+
+    .email-line {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .email {
+      font-size: 1.25rem;
+      word-break: break-all;
+    }
+  }
+</style>

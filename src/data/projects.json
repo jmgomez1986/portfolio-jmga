@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "ejemplo-dashboard-enterprise",
+    "title": "Dashboard enterprise — ejemplo reemplazable",
+    "description": "Ejemplo de cómo se completa una entrada: reemplazá título, descripción y tags por los de tu proyecto real, y poné tus URLs.",
+    "tags": ["Angular", "TypeScript", "NgRx"],
+    "repoUrl": "#",
+    "liveUrl": "#",
+    "placeholder": true,
+    "note": "PLACEHOLDER — editame. Cuando el proyecto real exista: cambiar title/description/tags/links y usar 'image' con el screenshot (public/img/<slug>.png). Sin 'image', la card muestra el mock CSS."
+  },
+  {
+    "slug": "ejemplo-libreria-componentes",
+    "title": "Librería de componentes — ejemplo reemplazable",
+    "description": "Segundo ejemplo de entrada. Estructura idéntica: toca este JSON y el sitio se actualiza solo, sin tocar componentes ni estilos.",
+    "tags": ["Angular", "Design System", "CDK"],
+    "repoUrl": "#",
+    "liveUrl": "#",
+    "placeholder": true,
+    "note": "PLACEHOLDER — editame, igual que la entrada anterior."
+  }
+]
