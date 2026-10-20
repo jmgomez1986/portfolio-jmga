@@ -32,8 +32,9 @@ import MobileMenu from "../islands/MobileMenu";
     top: 0;
     z-index: 50;
     height: var(--nav-h);
-    background: color-mix(in srgb, var(--bg) 85%, transparent);
-    backdrop-filter: blur(12px);
+    /* NOTE: no backdrop-filter here — blur turns this header into the containing
+       block for position:fixed descendants, which broke the mobile overlay. */
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
 
@@ -42,6 +43,9 @@ import MobileMenu from "../islands/MobileMenu";
     display: flex;
     align-items: center;
     gap: 1.25rem;
+    /* Paints the bar contents above the mobile overlay (z-index: 1). */
+    position: relative;
+    z-index: 2;
   }
 
   .brand {
@@ -142,14 +146,20 @@ import MobileMenu from "../islands/MobileMenu";
     :global(.mobile-menu-overlay) {
       position: fixed;
       inset: 0;
-      z-index: -1; /* sits right below the nav bar itself */
+      z-index: 1; /* above page content, below the nav bar (z-index: 2) */
       background: var(--bg);
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: calc(var(--nav-h) + 1rem) 0 2rem;
       opacity: 0;
       pointer-events: none;
       transition: opacity 200ms ease;
+    }
+
+    /* `hidden` attr must win over this display:flex */
+    :global(.mobile-menu-overlay[hidden]) {
+      display: none;
     }
 
     :global(.mobile-menu-overlay.open) {
