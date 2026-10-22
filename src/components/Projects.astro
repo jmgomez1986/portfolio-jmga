@@ -2,6 +2,7 @@
 import { es } from "../i18n/es";
 import SectionHeader from "./SectionHeader.astro";
 import BrowserPreview from "./BrowserPreview.astro";
+import TechIcon from "./TechIcon.astro";
 import projectData from "../data/projects.json";
 import type { ProjectEntry } from "../i18n/types";
 
@@ -16,7 +17,7 @@ const projects = projectData as ProjectEntry[];
     <div class="project-list">
       {
         projects.map((project, index) => (
-          <article class={`card project-row${index % 2 !== 0 ? " flipped" : ""}`}>
+          <article class={`card project-row reveal${index % 2 !== 0 ? " flipped" : ""}`} style={`--reveal-delay: ${index * 110}ms`}>
             <div class="project-media">
               {project.image ? (
                 <img loading="lazy" src={project.image} alt={`Vista previa de ${project.title}`} width="720" height="480" />
@@ -30,7 +31,7 @@ const projects = projectData as ProjectEntry[];
               <p class="desc muted">{project.description}</p>
               <ul class="tags" role="list">
                 {project.tags.map((tag) => (
-                  <li>{tag}</li>
+                  <li><TechIcon name={tag} />{tag}</li>
                 ))}
               </ul>
               <div class="project-links">

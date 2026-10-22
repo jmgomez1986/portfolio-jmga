@@ -1,6 +1,7 @@
 ---
 import { es } from "../i18n/es";
 import SectionHeader from "./SectionHeader.astro";
+import TechIcon from "./TechIcon.astro";
 ---
 
 <section class="skills">
@@ -10,8 +11,8 @@ import SectionHeader from "./SectionHeader.astro";
     <p class="intro muted">{es.skills.intro}</p>
 
     <p class="label group-label">{es.skills.coreLabel}</p>
-    <ul class="chips" role="list">
-      {es.skills.coreChips.map((chip) => <li class="chip">{chip}</li>)}
+    <ul class="chips reveal" role="list">
+      {es.skills.coreChips.map((chip) => <li class="chip"><TechIcon name={chip} />{chip}</li>)}
     </ul>
 
     <p class="sap-line muted">{es.skills.sapLine}</p>

@@ -1,0 +1,24 @@
+---
+import { resolveTechIcon } from "../data/techIcons";
+
+interface Props {
+  /** Technology label exactly as it appears in copy or project data. */
+  name: string;
+}
+
+const slug = resolveTechIcon(Astro.props.name);
+---
+
+{
+  slug ? (
+    <img
+      class="tech-icon"
+      src={`/icons/${slug}.svg`}
+      alt=""
+      width="14"
+      height="14"
+      loading="lazy"
+      aria-hidden="true"
+    />
+  ) : null
+}
