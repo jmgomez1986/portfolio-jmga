@@ -12,6 +12,7 @@ import { profile } from "../data/profile";
       </h1>
       <p class="hero-intro">{es.hero.intro}</p>
       <p class="hero-stack">{es.hero.stack}</p>
+      <p class="hero-availability"><span class="avail-dot" aria-hidden="true"></span>{es.badge}</p>
 
       <div class="hero-ctas">
         <a class="btn btn-solid" href="#projects">{es.hero.ctaPrimary} <span aria-hidden="true">→</span></a>
@@ -89,6 +90,42 @@ import { profile } from "../data/profile";
     margin-top: 0.9rem;
   }
 
+  /* Mobile-only availability pill: desktop already has the nav badge. */
+  .hero-availability {
+    display: none;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    margin-top: 1.4rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .avail-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: avail-pulse 2.4s ease-out infinite;
+  }
+
+  @keyframes avail-pulse {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 7px transparent;
+    }
+  }
+
   .hero-ctas {
     display: flex;
     flex-wrap: wrap;
@@ -132,6 +169,10 @@ import { profile } from "../data/profile";
       padding-top: calc(var(--nav-h) + 2.5rem);
       padding-bottom: 3.5rem;
       min-height: 0;
+    }
+
+    .hero-availability {
+      display: inline-flex;
     }
 
     .hero-grid {
