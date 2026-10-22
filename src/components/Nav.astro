@@ -81,6 +81,18 @@ import MobileMenu from "../islands/MobileMenu";
     height: 7px;
     border-radius: 50%;
     background: var(--accent);
+    /* Availability pulse: expanding ring that fades out, like an on/off air. */
+    animation: badge-pulse 2.4s ease-out infinite;
+  }
+
+  @keyframes badge-pulse {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent);
+    }
+    70%,
+    100% {
+      box-shadow: 0 0 0 7px transparent;
+    }
   }
 
   .nav-links {
