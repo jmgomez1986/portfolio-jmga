@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   // Canonical origin: baked into og:url/canonical in Layout. Update this one
   // line if the Cloudflare workers.dev subdomain changes.
-  site: "https://portfolio-jmga.jmgametal.workers.dev",
+  site: "https://juan-matias.gomez-portfolio.workers.dev",
   output: "static",
   integrations: [react()],
 });
