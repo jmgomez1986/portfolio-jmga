@@ -150,6 +150,7 @@ img {
 .chip {
   display: inline-flex;
   align-items: center;
+  gap: 0.45rem;
   min-height: 36px;
   padding: 0.3rem 0.85rem;
   border: 1px solid var(--border);
