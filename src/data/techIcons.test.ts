@@ -5,7 +5,7 @@ import projectData from "./projects.json";
 import { existsSync } from "node:fs";
 import path from "node:path";
 
-const TEXT_ONLY = new Set(["zustand", "tanstack", "design", "cdk"]);
+const TEXT_ONLY = new Set(["design", "cdk"]);
 
 /**
  * Every technology chip and project tag must resolve to an icon file that
@@ -37,6 +37,6 @@ function assertIconContract(label: string, source: string): void {
     );
     return;
   }
-  const file = path.join("public", "icons", `${key}.svg`);
+  const file = path.join("public", "icons", key);
   expect(existsSync(file), `${source} should have icon file ${file}`).toBe(true);
 }
