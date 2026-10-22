@@ -59,6 +59,7 @@ Cloudflare Workers Builds construye y publica automáticamente en cada push a `m
   monocromo, interacción = acento (mismo lenguaje que el resto del sitio).
 - **Resolución de íconos con contrato testeado** (`src/data/techIcons.test.ts`):
   cada chip/tag debe resolver a un archivo real en `public/icons` o estar en la
-  whitelist text-only (marcas sin logo oficial: Zustand, TanStack Query, Design
-  System, CDK). Un typo en el mapa sería una imagen rota en producción; hoy es
-  test rojo en vitest.
+  whitelist text-only (marcas sin logo: Design System, CDK). La mayoría del mapa
+  son SVG oficiales de devicon (MIT); TanStack y Zustand usan los assets de su
+  sitio oficial (`tanstack.svg` vectorial, `zustand.png` raster). Un typo en el
+  mapa sería una imagen rota en producción; hoy es test rojo en vitest.
