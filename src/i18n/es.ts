@@ -39,8 +39,8 @@ export const es: SiteCopy = {
   skills: {
     title: "Skills",
     intro:
-      "Stack técnico, disciplinas de ingeniería y herramientas que uso todos los días.",
-    coreLabel: "Core Frontend",
+      "Foco frontend con 8 años de Angular, y la base backend creciendo: Node.js y APIs REST.",
+    coreLabel: "Stack principal",
     coreChips: [
       "Angular (v11 → v21)",
       "TypeScript",

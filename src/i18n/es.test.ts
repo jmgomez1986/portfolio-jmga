@@ -46,6 +46,14 @@ describe("site copy (es) contract", () => {
     expect(copy.skills.sapLine).toMatch(/SAP\/ABAP/u);
   });
 
+  it("skills group is not framed as frontend-only", () => {
+    expect(copy.skills.coreLabel).not.toMatch(/frontend/iu);
+    expect(
+      copy.skills.coreChips.some((chip) => /node/iu.test(chip)),
+      "backend-capable tech should be present in the main group",
+    ).toBe(true);
+  });
+
   it("contact holds the real email", () => {
     expect(copy.contact.title.length).toBeGreaterThan(0);
     expect(copy.contact.subtitle.length).toBeGreaterThan(0);

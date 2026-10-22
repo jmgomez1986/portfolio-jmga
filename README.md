@@ -57,6 +57,12 @@ Cloudflare Workers Builds construye y publica automáticamente en cada push a `m
   verde, los logos a color permanente pelearían con la identidad; al revés
   funcionan: gris tenue de base, color real recién en hover. Estado estable =
   monocromo, interacción = acento (mismo lenguaje que el resto del sitio).
+- **Skills sin encasillar en "frontend"**: el grupo se llama "Stack principal"
+  (no "Core Frontend") porque incluye Node.js y la sección vende fullstack.
+  No se separa Frontend/Backend todavía: con un solo chip de backend la
+  sub-sección vende menos que el listado mixto. Plan: separar en dos grupos con
+  la misma grilla cuando el backend real llegue a 3-4 items (p. ej. Node.js,
+  APIs REST, PostgreSQL, Docker) — nunca inventar para llenar.
 - **Resolución de íconos con contrato testeado** (`src/data/techIcons.test.ts`):
   cada chip/tag debe resolver a un archivo real en `public/icons` o estar en la
   whitelist text-only (marcas sin logo: Design System, CDK). La mayoría del mapa
