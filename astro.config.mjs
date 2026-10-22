@@ -5,6 +5,9 @@ import react from "@astrojs/react";
 // Static output: the whole site renders to plain HTML at build time.
 // React components hydrate only where interactive (islands).
 export default defineConfig({
+  // Canonical origin: baked into og:url/canonical in Layout. Update this one
+  // line if the Cloudflare workers.dev subdomain changes.
+  site: "https://portfolio-jmga.jmgametal.workers.dev",
   output: "static",
   integrations: [react()],
 });
