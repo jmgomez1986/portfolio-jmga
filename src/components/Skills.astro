@@ -43,6 +43,21 @@ import TechIcon from "./TechIcon.astro";
     max-width: 720px;
   }
 
+  /* Desktop: exactly 5 per row, pills keep their natural width. */
+  @media (min-width: 861px) {
+    .chips {
+      max-width: none;
+      display: grid;
+      grid-template-columns: repeat(5, max-content);
+      justify-content: start;
+      gap: 0.9rem 0.8rem;
+    }
+
+    .chips li {
+      width: max-content;
+    }
+  }
+
   .sap-line {
     margin-top: 2rem;
     font-size: 0.9rem;
