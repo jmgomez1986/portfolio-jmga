@@ -51,6 +51,7 @@ export const es: SiteCopy = {
       "Node.js",
       "HTML",
       "CSS",
+      "Tailwind",
     ],
     sapLine: "También: 6 años de SAP/ABAP enterprise (ABAP POO, BADI's, ALV).",
   },

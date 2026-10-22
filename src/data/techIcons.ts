@@ -15,6 +15,7 @@ const ALIASES: Record<string, string> = {
   css: "css3.svg",
   ngrx: "ngrx.svg",
   tanstack: "tanstack.svg",
+  tailwind: "tailwind.svg",
   zustand: "zustand.png",
 };
 
