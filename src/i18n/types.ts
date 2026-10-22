@@ -34,6 +34,8 @@ export interface SiteCopy {
     titlePlain: string;
     titleItalic: string;
     intro: string;
+    /** Compact stack line shown under the intro. */
+    stack: string;
     ctaPrimary: string;
     ctaSecondary: string;
     socials: { github: string; linkedin: string; email: string };

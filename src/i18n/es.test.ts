@@ -22,6 +22,11 @@ describe("site copy (es) contract", () => {
     expect(copy.hero.intro).not.toMatch(/Next\.js/u);
   });
 
+  it("hero shows a visible compact stack line", () => {
+    assertStack(copy.hero.stack, ["Angular", "TypeScript", "SAP/ABAP"]);
+    expect(copy.hero.stack.length).toBeLessThan(80);
+  });
+
   it("about has exactly 2 paragraphs and 4-6 working principles", () => {
     expect(copy.about.paragraphs).toHaveLength(2);
     expect(copy.about.howIWork.length).toBeGreaterThanOrEqual(4);

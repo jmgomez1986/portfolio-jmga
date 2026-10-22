@@ -11,6 +11,7 @@ import { profile } from "../data/profile";
         {es.hero.titlePlain} <span class="serif-italic">{es.hero.titleItalic}</span>
       </h1>
       <p class="hero-intro">{es.hero.intro}</p>
+      <p class="hero-stack">{es.hero.stack}</p>
 
       <div class="hero-ctas">
         <a class="btn btn-solid" href="#projects">{es.hero.ctaPrimary} <span aria-hidden="true">→</span></a>
@@ -76,6 +77,16 @@ import { profile } from "../data/profile";
     color: var(--muted);
     max-width: 46ch;
     margin-top: 1.25rem;
+  }
+
+  .hero-stack {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    opacity: 0.85;
+    margin-top: 0.9rem;
   }
 
   .hero-ctas {

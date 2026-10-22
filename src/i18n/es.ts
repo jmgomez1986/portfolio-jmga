@@ -15,6 +15,7 @@ export const es: SiteCopy = {
     titleItalic: "Developer.",
     intro:
       "Especializado en aplicaciones web de alto rendimiento y arquitecturas frontend robustas con Angular (v11 → v21) y TypeScript — expandiendo hacia React y Node.",
+    stack: "Angular · TypeScript · React · Node.js — base SAP/ABAP",
     ctaPrimary: "Ver proyectos",
     ctaSecondary: "Descargar CV",
     socials: { github: "GitHub", linkedin: "LinkedIn", email: "jmgametal@gmail.com" },
