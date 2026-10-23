@@ -187,7 +187,9 @@ import { profile } from "../data/profile";
 
     .hero-photo {
       order: 1;
-      max-width: 420px;
+      /* Contained portrait: the photo supports the copy, never eats the screen */
+      max-width: 300px;
+      justify-self: center;
     }
   }
 </style>

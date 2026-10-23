@@ -15,6 +15,11 @@ import TechIcon from "./TechIcon.astro";
       {es.skills.coreChips.map((chip) => <li class="chip"><TechIcon name={chip} />{chip}</li>)}
     </ul>
 
+    <p class="label group-label tools-label">{es.skills.toolsLabel}</p>
+    <ul class="chips reveal" role="list">
+      {es.skills.toolsChips.map((chip) => <li class="chip"><TechIcon name={chip} />{chip}</li>)}
+    </ul>
+
     <p class="sap-line muted">{es.skills.sapLine}</p>
   </div>
 </section>
@@ -64,6 +69,10 @@ import TechIcon from "./TechIcon.astro";
     border-top: 1px solid var(--border);
     padding-top: 1.25rem;
     max-width: 720px;
+  }
+
+  .tools-label {
+    margin-top: 2rem;
   }
 
   @media (max-width: 860px) {

@@ -17,6 +17,10 @@ const ALIASES: Record<string, string> = {
   tanstack: "tanstack.svg",
   tailwind: "tailwind.svg",
   zustand: "zustand.png",
+  git: "git.svg",
+  github: "github.svg",
+  jira: "jira.svg",
+  postman: "postman.svg",
 };
 
 /** Cuts a display label down to its leading technology token. */

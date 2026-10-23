@@ -54,6 +54,15 @@ describe("site copy (es) contract", () => {
     ).toBe(true);
   });
 
+  it("tools group lists the core workflow tools", () => {
+    expect(copy.skills.toolsChips).toHaveLength(4);
+    const joined = copy.skills.toolsChips.join(" | ");
+    for (const tool of ["Git", "GitHub", "Jira", "Postman"]) {
+      expect(joined, `${tool} should be listed as a workflow tool`).toContain(tool);
+    }
+    expect(copy.skills.toolsLabel).not.toMatch(/stack/iu);
+  });
+
   it("contact holds the real email", () => {
     expect(copy.contact.title.length).toBeGreaterThan(0);
     expect(copy.contact.subtitle.length).toBeGreaterThan(0);

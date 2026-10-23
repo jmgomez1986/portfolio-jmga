@@ -54,6 +54,8 @@ export const es: SiteCopy = {
       "Tailwind",
     ],
     sapLine: "También: 6 años de SAP/ABAP enterprise (ABAP POO, BADI's, ALV).",
+    toolsLabel: "Herramientas de trabajo",
+    toolsChips: ["Git", "GitHub", "Jira", "Postman"],
   },
   projects: {
     title: "Proyectos",
