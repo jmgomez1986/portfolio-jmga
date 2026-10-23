@@ -160,8 +160,8 @@ import { profile } from "../data/profile";
 
   .portrait {
     width: 100%;
-    /* Contained at every breakpoint: We support, never dominate (see benchmarks) */
-    max-width: 400px;
+    /* Contained at every breakpoint: editorial stamp, never dominant */
+    max-width: 340px;
     height: auto;
     aspect-ratio: 3 / 3.8;
     object-fit: cover;
@@ -193,8 +193,8 @@ import { profile } from "../data/profile";
 
     .hero-photo {
       order: 1;
-      /* Contained portrait: the photo supports the copy, never eats the screen */
-      max-width: 300px;
+      /* Mobile: closing greeting, not a portrait wall */
+      max-width: 200px;
       justify-self: center;
     }
   }
